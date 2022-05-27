@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
+    "@tensorflow/tfjs": "^3.18.0",
     "next": "12.1.6",
+    "next-redux-wrapper": "^7.0.5",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "eslint": "8.16.0",
