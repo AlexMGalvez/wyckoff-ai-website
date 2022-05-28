@@ -20,6 +20,7 @@ const Model = () => {
     dispatch(setModel(model));
     console.log("Model loaded");
     console.log("");
+    
   };
 
   const makePredictionHandler = async () => {
