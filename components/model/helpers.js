@@ -7,12 +7,20 @@ const loadModel = () =>
       if (process.env.PUBLIC_URL) {
         // production enviornment
         model = await tf.loadLayersModel(
-          process.env.PUBLIC_URL + "/model/wyckoff-ai-model.json"
+          process.env.PUBLIC_URL + "/model/wyckoff-ai-model.json", {
+            onProgress: (fraction) => {
+              console.log("progress: ", fraction);
+            }
+          }
         );
       } else {
         // development enviornment
         model = await tf.loadLayersModel(
-          window.location.origin + "/model/wyckoff-ai-model.json"
+          window.location.origin + "/model/wyckoff-ai-model.json", {
+            onProgress: (fraction) => {
+              console.log("progress: ", fraction);
+            }
+          }
         );
       }
       return model;
