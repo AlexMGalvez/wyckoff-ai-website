@@ -1,10 +1,12 @@
 import Card from "../UI/Card";
 import LoadingModal from "../UI/LoadingModal";
+import ChartUI from "../prediction/chartUI/chartUI";
 
 import helpers from ".//helpers";
 import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { setModel } from "../../store/modelSlice";
+import { setStock } from "../../store/stockSlice";
 import { setPattern } from "../../store/patternSlice";
 
 const PAD_MAX = 2061;
@@ -15,7 +17,8 @@ const makePrediction = helpers.makePrediction;
 const Model = () => {
   const [isLoading, setIsLoading] = useState(false);
   const model = useSelector((state) => state.model.model);
-  const pattern = useSelector((state) => state.pattern);
+  const stock = useSelector((state) => state.stock.stock);
+  const pattern = useSelector((state) => state.pattern.pattern);
   const dispatch = useDispatch();
 
   const setModelHandler = async () => {
@@ -29,7 +32,7 @@ const Model = () => {
     console.log("Making prediction...");
     const modelOut = await makePrediction(
       model,
-      pattern.pattern,
+      pattern,
       PAD_MAX,
       SPECIAL_CHAR
     );
@@ -46,8 +49,9 @@ const Model = () => {
 
   const MakePredictionCard = () => (
     <Card>
+      <ChartUI stock={stock}/>
       <span>
-        Selected stock: {pattern.pattern.name}
+        Selected pattern from stock: {stock.name}
         <br />
         <br />
       </span>

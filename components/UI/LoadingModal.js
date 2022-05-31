@@ -6,7 +6,7 @@ const Backdrop = () => {
   return <div className={classes.backdrop} />;
 };
 
-const ModalOverlay = (props) => {
+const ModalOverlay = () => {
   return (
     <div className={classes.modal}>
       <div className={classes.content}><h2>Model Loading</h2> <p>Keep this page open in your browser. This may take a few minutes.</p></div>
@@ -15,7 +15,7 @@ const ModalOverlay = (props) => {
   );
 };
 
-const LoadingModal = (props) => {
+const LoadingModal = () => {
   return (
     <>
       {<Backdrop />}
