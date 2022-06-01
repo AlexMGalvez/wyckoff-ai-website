@@ -27,20 +27,20 @@ import { last } from "react-stockcharts/lib/utils";
 
 let ChartJS = (props) => {
     const changeCalculator = change();
-    const stock = useSelector((state) => state.stock.stock);
+    const pattern = useSelector((state) => state.pattern.pattern);
 
     const { type, width, ratio } = props;
 
     let initialData = [];
 
-    for (let i = 0; i < stock.data.length; i++) {
+    for (let i = 0; i < pattern.data.length; i++) {
         initialData.push({
-            date: new Date(stock.data[i].date),
-            open: stock.data[i].open,
-            high: stock.data[i].high,
-            low: stock.data[i].low,
-            close: stock.data[i].close,
-            volume: stock.data[i].volume
+            date: new Date(pattern.data[i].date),
+            open: pattern.data[i].open,
+            high: pattern.data[i].high,
+            low: pattern.data[i].low,
+            close: pattern.data[i].close,
+            volume: pattern.data[i].volume
         });
     }
 
@@ -70,7 +70,7 @@ let ChartJS = (props) => {
             onMouseLeave={changeScroll}
         >
             <ChartCanvas height={400}
-                width={800}
+                width={width}
                 ratio={ratio}
                 margin={{ left: 80, right: 80, top: 10, bottom: 30 }}
                 type={type}
@@ -99,7 +99,10 @@ let ChartJS = (props) => {
                     />
                 </Chart>
                 <Chart id={1}
-                    yExtents={[d => [d.high, d.low]]}
+                    yExtents={d => [
+                        Math.max(d.high, d.low),
+                        Math.min(d.high, d.low),
+                        ]}
                     padding={{ top: 40, bottom: 20 }}
                 >
                     <XAxis axisAt="bottom" orient="bottom" />

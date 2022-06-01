@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setStock } from "../../../store/stockSlice";
+import { setPattern } from "../../../store/patternSlice";
 import { fetchStock } from "../../prediction/financeApi/Api";
 import { apiToChartFormatter } from "../../prediction/data/helpers";
 
 const Symbol = (props) => {
-    const stock = useSelector((state) => state.stock.stock);
     const dispatch = useDispatch();
 
     // const setStockHandler = (event, data) => {
@@ -15,12 +15,11 @@ const Symbol = (props) => {
 
     const setStockHandler = async (event, data) => {
         props.setSymbols(null);
-        console.log("default: ",stock)
-
         const res = await fetchStock(data);
         const formattedStock = apiToChartFormatter(res);
         console.log("toset: ", formattedStock)
         dispatch(setStock(formattedStock));
+        dispatch(setPattern(null));
     }
 
     return (

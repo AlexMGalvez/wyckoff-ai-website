@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Model from "../components/model/Model";
+
 import Link from "next/link";
 
 export default function Home() {
@@ -13,10 +13,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Link href="/other">
-          <a>Navigate</a>
+        <Link href="/tools">
+          <a>Navigate to Tools</a>
         </Link>
-        <Model />
         {/* <h1 className={styles.title}>
           A Wyckoff trading assistant
         </h1>
