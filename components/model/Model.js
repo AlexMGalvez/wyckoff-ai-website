@@ -1,6 +1,7 @@
 import Card from "../UI/Card";
 import LoadingModal from "../UI/LoadingModal";
 import ChartUI from "../prediction/chartUI/chartUI";
+import SearchBar from "../UI/search/SearchBar";
 
 import helpers from ".//helpers";
 import { useState } from 'react';
@@ -48,24 +49,43 @@ const Model = () => {
   )
 
   const MakePredictionCard = () => (
-    <Card>
-      <ChartUI stock={stock}/>
-      <span>
-        Selected pattern from stock: {stock.name}
-        <br />
-        <br />
-      </span>
-      <button onClick={makePredictionHandler}>Predict pattern</button>
-      <p>
-        [1, 0, 0] = False accumulation pattern
-        <br />
-        [0, 1, 0] = Accumulation pattern ending at a spring in phase C
-        <br />
-        [0, 0, 1] = Incomplete accumulation pattern ending at a secondary test
-        in phase B
-        <br />
-      </p>
-    </Card>
+    <>
+      <Card>
+        <SearchBar/>
+
+        {/* <button onClick={searchFetch}>Seach APPL</button> */}
+
+        {/* <form style={{ paddingTop: "75px" }} onSubmit={(e) => this.submitHandler(e)}>
+          <label>
+            Enter ticker symbol:
+          </label>
+          <input type="text" onChange={(e) => this.handleInputChanger(e)}>
+          </input>
+          <button type="submit">
+            Submit
+          </button>
+        </form> */}
+        <ChartUI stock={stock} />
+      </Card>
+      <Card>
+        {/* <ChartUI stock={stock}/> */}
+        <span>
+          Selected pattern from stock: {stock.name}
+          <br />
+          <br />
+        </span>
+        <button onClick={makePredictionHandler}>Predict pattern</button>
+        <p>
+          [1, 0, 0] = False accumulation pattern
+          <br />
+          [0, 1, 0] = Accumulation pattern ending at a spring in phase C
+          <br />
+          [0, 0, 1] = Incomplete accumulation pattern ending at a secondary test
+          in phase B
+          <br />
+        </p>
+      </Card>
+    </>
   )
 
   // if (isLoading) {
@@ -76,8 +96,8 @@ const Model = () => {
 
   return (
     <>
-      {isLoading ? <LoadingModal/> : null}
-      {model == null  && !isLoading ? <SetModelCard /> : null}
+      {isLoading ? <LoadingModal /> : null}
+      {model == null && !isLoading ? <SetModelCard /> : null}
       {model != null ? <MakePredictionCard /> : null}
     </>
   );

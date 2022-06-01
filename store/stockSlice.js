@@ -1,11 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// model format:
-// pattern: {name, dates:[...], f1:[...], f2:[...], f3:[...], f4:[...]}
-
-// chart format: 
-// stock: {name, data: [{date, open, high, low, close, volumme}, ...]}
-
 const initialState = {
   stock: {
     name: "CVS", data: [{
