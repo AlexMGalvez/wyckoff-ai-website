@@ -22,13 +22,17 @@ import {
     OHLCTooltip,
 } from "react-stockcharts/lib/tooltip";
 import { change } from "react-stockcharts/lib/indicator";
-import { ClickCallback } from "react-stockcharts/lib/interactive";
+// import { ClickCallback } from "react-stockcharts/lib/interactive";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/utils";
+
+// recieved from click format: "yyyy-mm-ddT05:00:00.000Z"
+// patternStart/End format: "yyyy-mm-dd"
 
 let ChartJS = (props) => {
     const changeCalculator = change();
     const stock = useSelector((state) => state.stock.stock);
+    //const patternStart = useSelector((state) => state.patternStart.patternStart);
 
     const { type, width, ratio } = props;
 
@@ -65,16 +69,21 @@ let ChartJS = (props) => {
         document.body.style.overflow = (style === 'hidden') ? 'auto' : 'hidden'
     }
 
-    const onClickHandler = () => {
-        console.log("here")
-    }
+    // const onClickHandler = (moreProps) => {
+    //     console.log("Clicked")
+    //     console.log(moreProps) // Test this in production
+    // }
+    
+    // const onContextMenuHandler = (moreProps) => {
+    //     console.log("Right clicked")
+    //     console.log(moreProps) // Test this in production
+    // }
 
     return (
-        // <div
-        //     onMouseEnter={changeScroll}
-        //     onMouseLeave={changeScroll}
-        //     onClick={ (moreProps) => { console.log("onClick", moreProps); } }
-        // >
+        <div
+            onMouseEnter={changeScroll}
+            onMouseLeave={changeScroll}
+        >
             <ChartCanvas height={400}
                 width={width}
                 ratio={ratio}
@@ -87,8 +96,7 @@ let ChartJS = (props) => {
                 displayXAccessor={displayXAccessor}
                 xExtents={xExtents}
             >
-
-                {/* <Chart id={2}
+                <Chart id={2}
                     yExtents={[d => d.volume]}
                     height={150} origin={(w, h) => [0, h - 150]}
                 >
@@ -103,7 +111,7 @@ let ChartJS = (props) => {
                         opacity={0.3}
                         fill={d => d.close > d.open ? "#6BA583" : "#FF0000"}
                     />
-                </Chart> */}
+                </Chart>
                 <Chart id={1}
                     yExtents={d => [
                         Math.max(d.high, d.low),
@@ -127,21 +135,14 @@ let ChartJS = (props) => {
                         yAccessor={d => d.close} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"} />
 
                     <OHLCTooltip origin={[-40, 0]} />
-                    <ClickCallback
-						// onMouseMove={ (moreProps, e) => { console.log("onMouseMove", moreProps, e); } }
-						// onMouseDown={ (moreProps, e) => { console.log("onMouseDown", moreProps, e); } }
-						// onClick={ (moreProps, e) => { console.log("onClick", moreProps, e); } }
-						// onDoubleClick={ (moreProps, e) => { console.log("onDoubleClick", moreProps, e); } }
-						// onContextMenu={ (moreProps, e) => { console.log("onContextMenu", moreProps, e); } }
-						// onPan={ (moreProps, e) => { console.log("onPan", moreProps, e); } }
-						// onPanEnd={ (moreProps, e) => { console.log("onPanEnd", moreProps, e); } }
-
-                        onClick={ (moreProps, e) => { console.log("onClick", moreProps, e); } }
-					/>
+                    {/* <ClickCallback
+                        onClick={ (moreProps, e) => { onClickHandler(moreProps) } }
+                        onContextMenu={ (moreProps, e) => { onContextMenuHandler(moreProps) } }
+					/> */}
                 </Chart>
                 <CrossHairCursor />
             </ChartCanvas>
-        // </div>
+        </div>
     );
 }
 

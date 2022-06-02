@@ -8,7 +8,7 @@ const ChartUi = (props) => {
   const getData = async () => {
     const charts = [];
     if (props.stock != null) {
-      charts.push(<ChartJS key={1} stock={props.stock.data} />);
+      charts.push(<ChartJS key={1} stock={props.stock.data}/>);
     }
     setChartsToDisplay(charts);
   };
