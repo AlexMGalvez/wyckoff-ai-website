@@ -81,15 +81,15 @@ let ChartJS = (props) => {
 
     return (
         <div
-            onMouseEnter={changeScroll}
-            onMouseLeave={changeScroll}
+            // onMouseEnter={changeScroll}
+            // onMouseLeave={changeScroll}
         >
             <ChartCanvas height={400}
                 width={width}
                 ratio={ratio}
                 margin={{ left: 80, right: 80, top: 10, bottom: 30 }}
                 type={type}
-                seriesName="MSFT"
+                seriesName={stock.name}
                 data={data}
                 xScale={xScale}
                 xAccessor={xAccessor}

@@ -3,6 +3,8 @@ import debounce from "lodash.debounce";
 import SymbolList from "./SymbolList";
 import { fetchSymbols } from "../../prediction/financeApi/Api";
 
+import {DUMMY_SYMBOL_DATA} from "./DummyData";
+
 const Searchbar = () => {
   const [symbols, setSymbols] = useState(null);
 
@@ -12,7 +14,10 @@ const Searchbar = () => {
       setSymbols(null);
       return;
     }
-    const res = await fetchSymbols(e.target.value);
+
+    //const res = await fetchSymbols(e.target.value, "alpha_vantage");
+    const res = await DUMMY_SYMBOL_DATA;
+    
     setSymbols(res);
   }, 500);
 

@@ -24,6 +24,7 @@ import {
 import { change } from "react-stockcharts/lib/indicator";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/utils";
+import stockSlice from "../../../store/stockSlice";
 
 let ChartJS = (props) => {
     const changeCalculator = change();
@@ -59,22 +60,22 @@ let ChartJS = (props) => {
     const xExtents = [start, end];
 
     // prevents page scroll on chart zoom 
-    const changeScroll = () => {
-        let style = document.body.style.overflow
-        document.body.style.overflow = (style === 'hidden') ? 'auto' : 'hidden'
-    }
+    // const changeScroll = () => {
+    //     let style = document.body.style.overflow
+    //     document.body.style.overflow = (style === 'hidden') ? 'auto' : 'hidden'
+    // }
 
     return (
-        <div
-            onMouseEnter={changeScroll}
-            onMouseLeave={changeScroll}
-        >
+        // <div
+        //     onMouseEnter={changeScroll}
+        //     onMouseLeave={changeScroll}
+        // >
             <ChartCanvas height={400}
                 width={width}
                 ratio={ratio}
                 margin={{ left: 80, right: 80, top: 10, bottom: 30 }}
                 type={type}
-                seriesName="MSFT"
+                seriesName={pattern.name}
                 data={data}
                 xScale={xScale}
                 xAccessor={xAccessor}
@@ -124,7 +125,7 @@ let ChartJS = (props) => {
                 </Chart>
                 <CrossHairCursor />
             </ChartCanvas>
-        </div>
+        // </div>
     );
 }
 
