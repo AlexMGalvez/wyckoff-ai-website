@@ -1,24 +1,32 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setStock } from "../../../store/stockSlice";
+import { setBenchMark } from "../../../store/benchMarkSlice";
 import { setPattern } from "../../../store/patternSlice";
 import { fetchStock } from "../../prediction/financeApi/Api";
+import { fetchBenchMark } from "../../prediction/financeApi/Api";
 import { apiToChartFormatter } from "../../prediction/data/helpers";
+
+import { DUMMY_STOCK } from "./DummyData";
+import { DUMMY_BENCH } from "./DummyData";
+
+const RANGE = 1; // # of years
 
 const Symbol = (props) => {
     const dispatch = useDispatch();
 
-    // const setStockHandler = (event, data) => {
-    //     props.setSymbols(null);
-    //     //dispatch(setStock(stock));
-    //     const res = await fetchStock(data);
-    // }
-
     const setStockHandler = async (event, data) => {
         props.setSymbols(null);
-        const res = await fetchStock(data);
-        const formattedStock = apiToChartFormatter(res);
-        console.log("toset: ", formattedStock)
+
+        //const stockRes = await fetchStock(data["1. symbol"], "yahoo_finance", RANGE);
+        //const benchMarkRes = await fetchStock("%5EIXIC", "yahoo_finance", RANGE);
+        const stockRes = DUMMY_STOCK;
+        const benchMarkRes = DUMMY_BENCH;
+
+        const formattedStock = apiToChartFormatter(stockRes, "yahoo_finance");
+        const formattedBenchMark = apiToChartFormatter(benchMarkRes, "yahoo_finance");
+
         dispatch(setStock(formattedStock));
+        dispatch(setBenchMark(formattedBenchMark));
         dispatch(setPattern(null));
     }
 

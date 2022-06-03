@@ -29,6 +29,9 @@ const loadModel = () =>
     }
   });
 
+/*
+  Recieves pattern in format: {name, dates:[...], f1:[...], f2:[...], f3:[...], f4:[...]}
+*/
 const makePrediction = (model, pattern, PAD_MAX, SPECIAL_CHAR) => {
   const inputLayerShape = [2, PAD_MAX];
   const [X, paddingIndex] = reformatRawData(
