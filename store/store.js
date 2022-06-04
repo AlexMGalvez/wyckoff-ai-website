@@ -4,12 +4,14 @@ import model from "./modelSlice";
 import stock from "./stockSlice";
 import benchMark from "./benchMarkSlice";
 import pattern from "./patternSlice";
+import classification from "./classificationSlice";
 
 const combinedReducer = combineReducers({
   model,
   stock,
   benchMark,
-  pattern
+  pattern,
+  classification
 });
 
 const masterReducer = (state, action) => {
@@ -27,6 +29,9 @@ const masterReducer = (state, action) => {
       },
       pattern: {
         pattern: action.payload.pattern.pattern
+      },
+      classification: {
+        classification: action.payload.classification.classification
       }
     }
     return nextState;

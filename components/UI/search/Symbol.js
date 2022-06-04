@@ -6,6 +6,8 @@ import { fetchStock } from "../../prediction/financeApi/Api";
 import { fetchBenchMark } from "../../prediction/financeApi/Api";
 import { apiToChartFormatter } from "../../prediction/data/helpers";
 
+import classes from "./Symbol.module.css";
+
 import { DUMMY_STOCK } from "./DummyData";
 import { DUMMY_BENCH } from "./DummyData";
 
@@ -31,10 +33,10 @@ const Symbol = (props) => {
     }
 
     return (
-        <div className="bg-white p-2 border-b-2 border-gray-300">
+        <div className={classes["symbol-select"]}>
             <a onClick={(event) => setStockHandler(event, props.data)}>
-                <div className="text-xl font-medium text-black">{props.data["1. symbol"]}</div>
-                <p className="text-slate-500">{props.data["2. name"]}</p>
+                <div className={classes["symbol-ticker"]}>{props.data["1. symbol"]}</div>
+                <p className={classes["symbol-name"]}>{props.data["2. name"]}</p>
             </a>
         </div>
     )

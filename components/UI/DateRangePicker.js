@@ -6,6 +6,9 @@ import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 
 import { setPattern } from "../../store/patternSlice";
+import { setClassification } from "../../store/classificationSlice";
+
+import classes from "./DateRangePicker.module.css";
 
 const pastMonth = new Date(2020, 10, 15);
 
@@ -64,6 +67,7 @@ const DateRangePicker = () => {
 
     const setPatternHandler = (data) => {
         dispatch(setPattern({name: "pattern", data}));
+        dispatch(setClassification(null))
     };
 
     let footer = <p>Please pick the first day.</p>;
@@ -77,6 +81,7 @@ const DateRangePicker = () => {
 
     return (
         <DayPicker
+            className={classes["day-picker"]}
             mode="range"
             captionLayout="dropdown"
             defaultMonth={pastMonth}

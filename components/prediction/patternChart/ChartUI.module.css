@@ -4,3 +4,9 @@
   justify-content: center;
   width: 100%
 } */
+
+.chart {
+  overflow: hidden; /* prevent wrapping below element to the left */
+
+  
+}

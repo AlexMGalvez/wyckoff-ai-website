@@ -1,0 +1,5 @@
+.symbol-list {
+    position: absolute;
+    z-index: 7;
+    background-color: white;
+}
