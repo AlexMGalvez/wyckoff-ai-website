@@ -14,6 +14,14 @@ import { DUMMY_BENCH } from "./DummyData";
 const RANGE = 1; // # of years
 
 const Symbol = (props) => {
+    function truncateString(str, num) {
+        if (str.length > num) {
+            return str.slice(0, num) + "...";
+        } else {
+            return str;
+        }
+    }
+
     const dispatch = useDispatch();
 
     const setStockHandler = async (event, data) => {
@@ -36,7 +44,7 @@ const Symbol = (props) => {
         <div className={classes["symbol-select"]}>
             <a onClick={(event) => setStockHandler(event, props.data)}>
                 <div className={classes["symbol-ticker"]}>{props.data["1. symbol"]}</div>
-                <p className={classes["symbol-name"]}>{props.data["2. name"]}</p>
+                <p className={classes["symbol-name"]}>{truncateString(props.data["2. name"], 25)}</p>
             </a>
         </div>
     )

@@ -24,11 +24,13 @@ import {
 import { change } from "react-stockcharts/lib/indicator";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/utils";
-import stockSlice from "../../../store/stockSlice";
+
+import { useTheme } from 'next-themes'
 
 let ChartJS = (props) => {
     const changeCalculator = change();
     const pattern = useSelector((state) => state.pattern.pattern);
+    const { theme, setTheme } = useTheme()
 
     const { type, width, ratio } = props;
 
@@ -70,61 +72,62 @@ let ChartJS = (props) => {
         //     onMouseEnter={changeScroll}
         //     onMouseLeave={changeScroll}
         // >
-            <ChartCanvas height={400}
-                width={width}
-                ratio={ratio}
-                margin={{ left: 80, right: 80, top: 10, bottom: 30 }}
-                type={type}
-                seriesName={pattern.name}
-                data={data}
-                xScale={xScale}
-                xAccessor={xAccessor}
-                displayXAccessor={displayXAccessor}
-                xExtents={xExtents}
+        <ChartCanvas height={400}
+            width={width}
+            ratio={ratio}
+            margin={{ left: 80, right: 80, top: 10, bottom: 30 }}
+            type={type}
+            seriesName={pattern.name}
+            data={data}
+            xScale={xScale}
+            xAccessor={xAccessor}
+            displayXAccessor={displayXAccessor}
+            xExtents={xExtents}
+        >
+
+            <Chart id={2}
+                yExtents={[d => d.volume]}
+                height={150} origin={(w, h) => [0, h - 150]}
             >
+                <YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".2s")} tickStroke={theme == "dark" ? "white" : "black"} />
+                <MouseCoordinateY
+                    at="left"
+                    orient="left"
+                    displayFormat={format(".4s")} />
 
-                <Chart id={2}
-                    yExtents={[d => d.volume]}
-                    height={150} origin={(w, h) => [0, h - 150]}
-                >
-                    <YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".2s")} />
-                    <MouseCoordinateY
-                        at="left"
-                        orient="left"
-                        displayFormat={format(".4s")} />
+                <BarSeries yAccessor={d => d.volume}
+                    widthRatio={0.95}
+                    opacity={0.3}
+                    fill={d => d.close > d.open ? "#6BA583" : "#FF0000"}
+                />
+            </Chart>
+            <Chart id={1}
+                yExtents={d => [
+                    Math.max(d.high, d.low),
+                    Math.min(d.high, d.low),
+                ]}
+                padding={{ top: 40, bottom: 20 }}
+            >
+                <XAxis axisAt="bottom" orient="bottom" stroke={theme == "dark" ? "white" : "black"} tickStroke={theme == "dark" ? "white" : "black"} />
+                <YAxis axisAt="right" orient="right" ticks={5} stroke={theme == "dark" ? "white" : "black"} tickStroke={theme == "dark" ? "white" : "black"} />
+                <MouseCoordinateX
+                    at="bottom"
+                    orient="bottom"
+                    displayFormat={timeFormat("%Y-%m-%d")} />
+                <MouseCoordinateY
+                    at="right"
+                    orient="right"
+                    displayFormat={format(".2f")} />
 
-                    <BarSeries yAccessor={d => d.volume}
-                        widthRatio={0.95}
-                        opacity={0.3}
-                        fill={d => d.close > d.open ? "#6BA583" : "#FF0000"}
-                    />
-                </Chart>
-                <Chart id={1}
-                    yExtents={d => [
-                        Math.max(d.high, d.low),
-                        Math.min(d.high, d.low),
-                        ]}
-                    padding={{ top: 40, bottom: 20 }}
-                >
-                    <XAxis axisAt="bottom" orient="bottom" />
-                    <YAxis axisAt="right" orient="right" ticks={5} />
-                    <MouseCoordinateX
-                        at="bottom"
-                        orient="bottom"
-                        displayFormat={timeFormat("%Y-%m-%d")} />
-                    <MouseCoordinateY
-                        at="right"
-                        orient="right"
-                        displayFormat={format(".2f")} />
+                {theme == "dark" ? <CandlestickSeries wickStroke={d => d.close > d.open ? "#6BA583" : "#DB0000"} fill={d => d.close > d.open ? "#6BA583" : "#DB0000"} /> : <CandlestickSeries />}
 
-                    <CandlestickSeries />
-                    <EdgeIndicator itemType="last" orient="right" edgeAt="right"
-                        yAccessor={d => d.close} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"} />
+                <EdgeIndicator itemType="last" orient="right" edgeAt="right"
+                    yAccessor={d => d.close} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"} />
 
-                    <OHLCTooltip origin={[-40, 0]} />
-                </Chart>
-                <CrossHairCursor />
-            </ChartCanvas>
+                <OHLCTooltip origin={[-40, 0]} />
+            </Chart>
+            <CrossHairCursor />
+        </ChartCanvas>
         // </div>
     );
 }

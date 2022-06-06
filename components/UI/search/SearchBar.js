@@ -24,8 +24,9 @@ const Searchbar = () => {
   }, 500);
 
   return (
-    <div>
+    <>
       <input
+        className={classes["symbol-input"]}
         type="search"
         name="search"
         placeholder="Search for Stocks..."
@@ -35,7 +36,7 @@ const Searchbar = () => {
       <div className={classes["symbol-list"]} >
         <SymbolList data={symbols} setSymbols={setSymbols}/>
       </div>
-    </div>
+    </>
   );
 };
 
