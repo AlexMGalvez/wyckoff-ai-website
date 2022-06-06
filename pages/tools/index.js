@@ -6,7 +6,7 @@ import DateRangePicker from "../../components/UI/DateRangePicker";
 import PatternChartUI from "../../components/prediction/patternChart/chartUI"
 import StockChartUI from "../../components/prediction/stockChart/chartUI";
 import SearchBar from "../../components/UI/search/SearchBar";
-import helpers from ".//helpers";
+import modelHelpers from "../../components/model/modelHelpers";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,8 +19,8 @@ import classes from "./index.module.css";
 
 const PAD_MAX = 2061;
 const SPECIAL_CHAR = 0;
-const loadModel = helpers.loadModel;
-const makePrediction = helpers.makePrediction;
+const loadModel = modelHelpers.loadModel;
+const makePrediction = modelHelpers.makePrediction;
 
 const ToolsPage = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -149,13 +149,13 @@ const ToolsPage = () => {
 
     return (
         <>
-            <h1 className={classes["headings"]}>AI Classifier</h1>
+            <h1 className={classes["headings"]}>Wyckoff Pattern Classifier</h1>
             <div className={classes["grid-container"]}>
                 <Card2 className={classes["text-module"]}>
                     <p>Come use the assistance of an AI for your next stock evaluation. This classifier uses the historical Wyckoff patterns of industry leading companies from the past 40 years to make a best prediction of whatever stock period that you wish to classify. </p>
                     <p>Reading and understanding the instructions section first before using this tool is essential for accurate pattern classifications. Read it here: (page unavailable at the moment)</p>
                     <div className={"warning-msg"}>
-                        <FontAwesomeIcon icon={faWarning} />
+                        <FontAwesomeIcon icon={faWarning} size="sm"/>
                         &nbsp;This feature is currently under development. Classification results should be entirely disregarded and not considered for any financial decisions.
                     </div>
                 </Card2>

@@ -54,7 +54,7 @@ const DateRangePicker = () => {
             if ((toDateIndex - fromDateIndex) < 5) {
                 return footer = (
                     <div className={"error-msg"}>
-                        <FontAwesomeIcon icon={faTimesCircle} />
+                        <FontAwesomeIcon icon={faTimesCircle} size="sm"/>
                         &nbsp;Must select a pattern over 5 days.
                     </div>
                 );
@@ -69,7 +69,7 @@ const DateRangePicker = () => {
         } else {
             return footer = (
                 <div className={"error-msg"}>
-                    <FontAwesomeIcon icon={faTimesCircle} />
+                    <FontAwesomeIcon icon={faTimesCircle} size="sm"/>
                     &nbsp;A weekend or holiday cant be selected.
                 </div>
             );

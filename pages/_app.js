@@ -18,7 +18,7 @@ function App({ Component, pageProps }) {
       <Script src="..//chartjs-chart-financial.js"></Script> */}
       <ThemeProvider>
         <Layout>
-          <Component {...pageProps} />
+            <Component {...pageProps} />
         </Layout>
       </ThemeProvider>
     </>
