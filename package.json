@@ -30,6 +30,7 @@
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
     "react-stockcharts": "^0.7.8",
+    "seedrandom": "^2.4.4",
     "shortid": "^2.2.16"
   },
   "devDependencies": {
