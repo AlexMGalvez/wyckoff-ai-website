@@ -4,6 +4,8 @@ import 'react-day-picker/src/style.css';
 
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { setPattern } from "../../store/patternSlice";
 import { setClassification } from "../../store/classificationSlice";
@@ -49,6 +51,14 @@ const DateRangePicker = () => {
         let eligiblePattern;
 
         if (fromDateIndex != -1 && toDateIndex != -1) {
+            if ((toDateIndex - fromDateIndex) < 5) {
+                return footer = (
+                    <div className={"error-msg"}>
+                        <FontAwesomeIcon icon={faTimesCircle} />
+                        &nbsp;Must select a pattern over 5 days.
+                    </div>
+                );
+            }
             eligiblePattern = Object.entries(stock.data).slice(fromDateIndex, toDateIndex + 1).map(day => day[1]);
             setPatternHandler(eligiblePattern);
             return footer = (
@@ -58,15 +68,16 @@ const DateRangePicker = () => {
             );
         } else {
             return footer = (
-                <p>
-                    Weekend or holiday cant be selected
-                </p>
+                <div className={"error-msg"}>
+                    <FontAwesomeIcon icon={faTimesCircle} />
+                    &nbsp;A weekend or holiday cant be selected.
+                </div>
             );
         }
     }
 
     const setPatternHandler = (data) => {
-        dispatch(setPattern({name: "pattern", data}));
+        dispatch(setPattern({ name: "pattern", data }));
         dispatch(setClassification(null))
     };
 
