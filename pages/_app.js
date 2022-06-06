@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
 import Layout from "../components/layout/Layout";
+import { ThemeProvider } from 'next-themes'
 import "../styles/globals.css";
 
 import { wrapper } from "../store/store";
@@ -15,9 +16,11 @@ function App({ Component, pageProps }) {
       <Script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.2.1"></Script>
       
       <Script src="..//chartjs-chart-financial.js"></Script> */}
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   );
 }

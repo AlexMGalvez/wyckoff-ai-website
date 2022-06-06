@@ -14,3 +14,57 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  /* background: linear-gradient(to bottom right, var(--color1),  var(--color2)); */
+  background: white;
+  --color1: #eeeeee;
+  --color2: #979797;
+  --color3: lightgrey;
+  --color4: #000000;
+  --card2-color: lightgrey;
+  --att-btn-color: #000000;
+
+  --chart-color1: #000000;
+  --chart-color2: #000000;
+
+  --rdp-background-color: var(--color1) !important;
+}
+
+[data-theme='dark'] {
+  /* background: linear-gradient(to bottom right, var(--color1),  var(--color4)); */
+  background: rgb(31, 31, 31);
+  --color1: #303030;
+  --color2: #666666;
+  --color3: #979797;
+  --color4: #000000;
+  --card2-color: #666666;
+  --att-btn-color: #eeeeee;
+
+  --chart-color1: #6BA583;
+  --chart-color2: #DB0000;
+
+}
+
+[data-theme='dark'] .react-stockcharts-tooltip {
+  fill: white;
+}
+[data-theme='dark'] .react-stockcharts-tooltip-label {
+  fill: yellow;
+}
+
+/* override darkmode text color change for react day picker dropdown menu */
+.rdp-dropdown {
+  color: #000000;
+}
+
+html{
+  min-height: 100%;
+}
+
+body{
+  font-family: Verdana;
+  padding:0px;
+  margin:0px;
+  height: 100%;
+}

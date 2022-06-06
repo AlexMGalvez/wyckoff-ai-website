@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Card from "../../components/UI/Card";
+import Card1 from "../../components/UI/cards/Card1";
+import Card2 from "../../components/UI/cards/Card2";
 import AttButton from "../../components/UI/button/AttButton";
 import LoadingModal from "../../components/UI/LoadingModal";
 import DateRangePicker from "../../components/UI/DateRangePicker";
@@ -67,46 +67,46 @@ const ToolsPage = () => {
     };
 
     const StockCard = () => (
-        <Card>
+        <Card1>
             <SearchBar />
             <StockChartUI stock={stock} />
-        </Card>
+        </Card1>
     )
 
     const NullStockCard = () => (
-        <Card>
+        <Card1>
             <p>First select a stock: </p>
             <SearchBar />
-        </Card>
+        </Card1>
     )
 
     const SetModelCard = () => (
         <div className={classes["model-module"]}>
-            <Card>
-                <p className={classes["centered-text"]}>Load model for the AI-assisted classifier: </p>
+            <Card1>
+                <p className={classes["headings"]}>Load model for the AI-assisted classifier: </p>
                 <AttButton onClick={setModelHandler}>Load Model</AttButton>
-            </Card>
+            </Card1>
         </div>
     )
 
     const SetPatternCard = () => (
         <div className={classes["pattern-module"]}>
-            <Card>
+            <Card1>
                 <p>Select a date range interval from the stock to classify: </p>
                 <div className={classes["pattern-card-wrapper"]}>
                     <DateRangePicker />
                     <PatternChartUI pattern={pattern} />
                 </div>
-            </Card>
+            </Card1>
         </div>
     )
 
     const MakePredictionCard = () => (
         <div className={classes["prediction-module"]}>
-            <Card>
-                {classification == null ? <AttButton onClick={makePredictionHandler}>Predict pattern</AttButton> : null}
+            <Card2>
+                {classification == null ? <AttButton onClick={makePredictionHandler}>Classify Pattern</AttButton> : null}
                 {model != null && pattern != null && classification != null ? <PredictionResults /> : null}
-            </Card>
+            </Card2>
         </div>
     )
 
@@ -121,8 +121,8 @@ const ToolsPage = () => {
             return (
                 <>
                     <h2>Possible Distribution</h2>
-                    <p>The AI predicts that this is a distribution scenario. Consider selling assets and placing short positions.</p>
-                    <p>Remain flexible with your assets and continue analyzing near future market behaviour for any changes in Wyckoffian activity.</p>
+                    <p>The AI predicts that this is a distribution scenario. Consider selling assets and placing short positions but remain flexible with your assets.</p>
+                    <p>Continue analyzing near future market behaviour for any changes in Wyckoffian activity.</p>
                 </>
             )
         }
@@ -131,7 +131,7 @@ const ToolsPage = () => {
                 <>
                     <h2>Possible Accumulation</h2>
                     <p>The AI predicts that this is an accumulation scenario reaching its finishing stage of phase C and unlikely to lower much further in value.</p>
-                    <p>Consider placing a long position. Remain flexible with your assets and continue analyzing near future market behaviour for any changes in Wyckoffian activity.</p>
+                    <p>Consider placing long positions but remain flexible with your assets. Continue analyzing near future market behaviour for any changes in Wyckoffian activity.</p>
                 </>
             )
         }
@@ -147,9 +147,12 @@ const ToolsPage = () => {
 
     return (
         <>
-            <h1>Accumulation / Distribution Classifier</h1>
-
+            <h1 className={classes["headings"]}>AI Classifier</h1>
             <div className={classes["grid-container"]}>
+            <Card2 className={classes["text-module"]}>
+                <p>Come use the assistance of an AI for your next stock evaluation. This classifier uses the historical Wyckoff patterns of industry leading companies from the past 40 years to make a best prediction of whatever stock period that you wish to classify. </p>
+                <p>Reading and understanding the instructions section first is essential for accurate pattern classifications. Read it here: (page unavailable at the moment)</p>
+            </Card2>
                 <div className={classes["stock-module"]}>
                     {stock != null ? <StockCard /> : <NullStockCard />}
                 </div>

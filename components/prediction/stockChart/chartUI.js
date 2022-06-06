@@ -18,11 +18,9 @@ const ChartUi = (props) => {
   }, []);
 
   return (
-    <>
       <div className={classes.chart}>
         {chartsToDisplay}
       </div>
-    </>
   );
 };
 

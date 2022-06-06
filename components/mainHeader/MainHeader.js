@@ -1,6 +1,8 @@
 import React from "react";
 import Link from 'next/link';
 
+import ThemeChanger from "../UI/themeChanger/ThemeChanger";
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -20,6 +22,7 @@ function MainHeader() {
       <Link href="/" className={classes.logo}>
       Wyckoff Ai
       </Link>
+      <ThemeChanger/>
       {/* <nav className={classes.nav}>
         <ul>
           <li>

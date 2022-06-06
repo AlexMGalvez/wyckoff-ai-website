@@ -1,0 +1,8 @@
+.card {
+  padding: 30px;
+  /* margin: 0 2rem 0 0; */
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
+
+  height: auto;
+  background-image: linear-gradient(to bottom right, var(--color1),  var(--card2-color));
+}

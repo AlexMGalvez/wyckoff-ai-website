@@ -26,12 +26,15 @@ import { change } from "react-stockcharts/lib/indicator";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/utils";
 
+import { useTheme } from 'next-themes'
+
 // recieved from click format: "yyyy-mm-ddT05:00:00.000Z"
 // patternStart/End format: "yyyy-mm-dd"
 
 let ChartJS = (props) => {
     const changeCalculator = change();
     const stock = useSelector((state) => state.stock.stock);
+    const { theme, setTheme } = useTheme()
     //const patternStart = useSelector((state) => state.patternStart.patternStart);
 
     const { type, width, ratio } = props;
@@ -73,7 +76,7 @@ let ChartJS = (props) => {
     //     console.log("Clicked")
     //     console.log(moreProps) // Test this in production
     // }
-    
+
     // const onContextMenuHandler = (moreProps) => {
     //     console.log("Right clicked")
     //     console.log(moreProps) // Test this in production
@@ -81,8 +84,8 @@ let ChartJS = (props) => {
 
     return (
         <div
-            // onMouseEnter={changeScroll}
-            // onMouseLeave={changeScroll}
+        // onMouseEnter={changeScroll}
+        // onMouseLeave={changeScroll}
         >
             <ChartCanvas height={400}
                 width={width}
@@ -100,7 +103,7 @@ let ChartJS = (props) => {
                     yExtents={[d => d.volume]}
                     height={150} origin={(w, h) => [0, h - 150]}
                 >
-                    <YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".2s")} />
+                    <YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".2s") } tickStroke={theme == "dark" ? "white": "black"}/>
                     <MouseCoordinateY
                         at="left"
                         orient="left"
@@ -116,11 +119,11 @@ let ChartJS = (props) => {
                     yExtents={d => [
                         Math.max(d.high, d.low),
                         Math.min(d.high, d.low),
-                        ]}
+                    ]}
                     padding={{ top: 40, bottom: 20 }}
                 >
-                    <XAxis axisAt="bottom" orient="bottom" />
-                    <YAxis axisAt="right" orient="right" ticks={5} />
+                    <XAxis axisAt="bottom" orient="bottom" stroke={theme == "dark" ? "white": "black"} tickStroke={theme == "dark" ? "white": "black"}/>
+                    <YAxis axisAt="right" orient="right" ticks={5} stroke={theme == "dark" ? "white": "black"} tickStroke={theme == "dark" ? "white": "black"}/>
                     <MouseCoordinateX
                         at="bottom"
                         orient="bottom"
@@ -130,7 +133,8 @@ let ChartJS = (props) => {
                         orient="right"
                         displayFormat={format(".2f")} />
 
-                    <CandlestickSeries />
+                    {theme == "dark" ? <CandlestickSeries wickStroke={ d => d.close > d.open ? "#6BA583" : "#DB0000"} fill={d => d.close > d.open ? "#6BA583" : "#DB0000"} /> : <CandlestickSeries/>}
+
                     <EdgeIndicator itemType="last" orient="right" edgeAt="right"
                         yAccessor={d => d.close} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"} />
 
