@@ -68,3 +68,20 @@ body{
   margin:0px;
   height: 100%;
 }
+
+.warning-msg,
+.error-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+.warning-msg {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+
+.error-msg {
+    color: #D8000C;
+    background-color: #FFBABA;
+  }
