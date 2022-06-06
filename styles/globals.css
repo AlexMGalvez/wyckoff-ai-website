@@ -2,8 +2,52 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1 {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--h1color)
+}
+
+h3 {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+p {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+blockquote {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+pre {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 a {
@@ -22,6 +66,7 @@ a {
   --color2: #979797;
   --color3: lightgrey;
   --color4: #000000;
+  --h1color: #979797;
   --card2-color: lightgrey;
   --att-btn-color: #000000;
 
@@ -49,6 +94,7 @@ a {
 [data-theme='dark'] .react-stockcharts-tooltip {
   fill: white;
 }
+
 [data-theme='dark'] .react-stockcharts-tooltip-label {
   fill: yellow;
 }
@@ -58,14 +104,14 @@ a {
   color: #000000;
 }
 
-html{
+html {
   min-height: 100%;
 }
 
-body{
+body {
   font-family: Verdana;
-  padding:0px;
-  margin:0px;
+  padding: 0px;
+  margin: 0px;
   height: 100%;
 }
 
@@ -82,6 +128,6 @@ body{
 }
 
 .error-msg {
-    color: #D8000C;
-    background-color: #FFBABA;
-  }
+  color: #D8000C;
+  background-color: #FFBABA;
+}
