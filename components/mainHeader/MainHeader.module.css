@@ -12,11 +12,16 @@
   padding: 0 10%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 10;
-  
+
+}
+
+.logo-container {
+  width: 180px;
+  height: 100%;
+  position: relative;
 }
 
 .logo {
-  height: 60%;
   cursor: pointer;
 }
 
@@ -55,8 +60,10 @@
   color: #88dfdf;
   padding: 20px 16px;
   background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
 }
 
 
@@ -67,7 +74,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
