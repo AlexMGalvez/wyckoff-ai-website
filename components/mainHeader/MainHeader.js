@@ -1,14 +1,15 @@
 import React from "react";
-import Link from 'next/link';
-
+import Link from "next/link";
 import ThemeChanger from "../UI/themeChanger/ThemeChanger";
+import { useTheme } from 'next-themes'
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 import classes from "./MainHeader.module.css";
 
-function MainHeader() {
+const MainHeader = () => {
+  const { theme, setTheme } = useTheme();
   return (
     <header className={classes.header}>
       {/* <div className={classes.dropdown}>
@@ -19,10 +20,13 @@ function MainHeader() {
           <Link to="/computing-support-and-resistance-lines-in-javascript">Computing Support and Resistance Lines in Javascript</Link>
         </div>
       </div> */}
-      <Link href="/" className={classes.logo}>
-      Wyckoff Ai
+      <Link href="/">
+        {/* {process.env.PUBLIC_URL ? <img src={process.env.PUBLIC_URL + "/logo-text.png"} alt="logo" className={classes.logo} /> : <img src={".//logo-text.png"} alt="logo" className={classes.logo} />} */}
+
+        {/* { theme == "light" ? <img src={".//logo-text-light.png"} alt="logo" className={classes.logo} /> : <img src={".//logo-text-dark.png"} alt="logo" className={classes.logo} />} */}
+        <img src={".//logo-text-dark.png"} alt="logo" className={classes.logo} />
       </Link>
-      <ThemeChanger/>
+      <ThemeChanger />
       {/* <nav className={classes.nav}>
         <ul>
           <li>

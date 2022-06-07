@@ -16,9 +16,8 @@
 }
 
 .logo {
-  text-decoration: none;
-  font-size: 2rem;
-  color: white;
+  height: 60%;
+  cursor: pointer;
 }
 
 .nav ul {

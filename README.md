@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Wyckoff.AI Model - A Work in Progress
 
-## Getting Started
+![alt text](https://github.com/AlexMGalvez/wyckoff-ai-website/blob/master/public/logo-large-light.png?raw=true)
 
-First, run the development server:
+> Wyckoff AI aims to make traditionally closed source institution trading software free and open source to the public and easily accessible from the browser
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## General Info
+This is an AI-assisted stock trader’s financial instrument for detecting stock market manipulation patterns as per the technical analysis principles of one of the five "titans of technical analysis", Richard Wyckoff. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The goal of this software is to assist with a trader’s decision in identifying potential high-reward/low-risk financial positions of a stock strategically during phases when large institutional interests are simultaneously planning to manipulate the stock's value for their own profit.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The incomplete model shows early promising results but given the time-consuming and ambitious nature of this project, it is far from producing consistently reliable output. The gathering of training data is an on going work in progress, and the layers and neurons have yet to be fully optimized. The model currently has an issue with underfitting, but loss functions continue to improve the more that training data is added.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Technical Info
+This repository is of the full stack user interface for running the software.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Technologies
+* React
+* Next.js
+* Redux
+* Tensorflow.js - version 2.0.0
