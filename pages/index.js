@@ -23,7 +23,7 @@ export default function Home() {
         </div>
         <h1> LANDING PAGE COMING SOON </h1>
         <Link href="/tools">
-          <a>Navigate to Tools -></a>
+          <a>Navigate to Tools-&gt;</a>
         </Link>
       </main>
 
