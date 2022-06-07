@@ -18,9 +18,10 @@ h3 {
   font-family: Verdana, Tahoma, sans-serif;
   font-size: 20px;
   font-style: normal;
-  font-variant: normal;
+  font-variant: small-caps;
   font-weight: 400;
   line-height: 26px;
+  color: var(--h1color)
 }
 
 p {
@@ -61,8 +62,8 @@ a {
 
 :root {
   /* background: linear-gradient(to bottom right, var(--color1),  var(--color2)); */
-  background: white;
-  --color1: #eeeeee;
+  background: #eeeeee;
+  --color1: rgb(235, 233, 233);
   --color2: #979797;
   --color3: lightgrey;
   --color4: #000000;

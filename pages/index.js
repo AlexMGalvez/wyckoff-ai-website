@@ -21,9 +21,9 @@ export default function Home() {
         <div className={classes["logo-container"]}>
           {theme == "light" ? <Image src="/logo-large-light.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} /> : <Image src="/logo-large-dark.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} />}
         </div>
-        <h1> LANDING PAGE COMING SOON </h1>
+        <h3> Providing Institution-Grade Trading Software Free for the Public </h3>
         <Link href="/tools">
-          <a>Navigate to Tools-&gt;</a>
+          <a>Navigate to Trading Tools -&gt;</a>
         </Link>
       </main>
 
