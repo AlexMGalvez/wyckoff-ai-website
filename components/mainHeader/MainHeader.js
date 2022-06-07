@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from 'next/image'
 import ThemeChanger from "../UI/themeChanger/ThemeChanger";
 import { useTheme } from 'next-themes'
 
@@ -20,12 +21,14 @@ const MainHeader = () => {
           <Link to="/computing-support-and-resistance-lines-in-javascript">Computing Support and Resistance Lines in Javascript</Link>
         </div>
       </div> */}
-      <Link href="/">
-        {/* {process.env.PUBLIC_URL ? <img src={process.env.PUBLIC_URL + "/logo-text.png"} alt="logo" className={classes.logo} /> : <img src={".//logo-text.png"} alt="logo" className={classes.logo} />} */}
 
-        {/* { theme == "light" ? <img src={".//logo-text-light.png"} alt="logo" className={classes.logo} /> : <img src={".//logo-text-dark.png"} alt="logo" className={classes.logo} />} */}
-        <img src={".//logo-text-dark.png"} alt="logo" className={classes.logo} />
+      <Link href="/">
+        <div className={classes["logo-container"]}>
+          {/* {theme == "light" ? <Image src="/logo-text-light.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} /> : <Image src="/logo-text-dark.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} />} */}
+          <Image src="/logo-text-dark.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} />
+        </div>
       </Link>
+
       <ThemeChanger />
       {/* <nav className={classes.nav}>
         <ul>
