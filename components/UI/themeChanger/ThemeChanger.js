@@ -1,19 +1,28 @@
 import { useState, useEffect } from "react";
-import { useTheme } from 'next-themes'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { useTheme } from "next-themes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
-import classes from './ThemeChanger.module.css';
+import classes from "./ThemeChanger.module.css";
 
 const ThemeChanger = () => {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const inputHandler = (event) => {
     if (event.target.checked == true) {
-      setTheme('dark');
+      setTheme("dark");
     } else {
-      setTheme('light');
+      setTheme("light");
+    }
+  }
+
+  const setHandler = () => {
+    if (theme == "dark") {
+      return true;
+    }
+    else if (theme = "light") {
+      return false;
     }
   }
 
@@ -25,7 +34,7 @@ const ThemeChanger = () => {
     <ul className={classes["navbar-buttons"]}>
       <li>
         <label className={classes["switch"]}>
-          <input onChange={inputHandler} type="checkbox"/>
+          <input value={true} onChange={inputHandler} defaultChecked={setHandler()} type="checkbox"/>
             <span className={`${classes["slider"]} ${classes["round"]}`}></span>
         </label>
       </li>

@@ -25,7 +25,7 @@ const MainHeader = () => {
       <Link href="/">
         <div className={classes["logo-container"]}>
           {/* {theme == "light" ? <Image src="/logo-text-light.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} /> : <Image src="/logo-text-dark.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} />} */}
-          <Image src="/logo-text-dark.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} />
+          <Image src="/images/logo-text-dark-min.png" alt="logo" layout="fill" objectFit="contain" className={classes.logo} />
         </div>
       </Link>
 
