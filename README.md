@@ -1,4 +1,4 @@
-# Wyckoff.AI Model - A Work in Progress
+# Wyckoff.AI Website - A Work in Progress
 
 ![alt text](https://github.com/AlexMGalvez/wyckoff-ai-website/blob/master/public/logo-large-light.png?raw=true)
 
@@ -12,7 +12,7 @@ The goal of this software is to assist with a trader’s decision in identifying
 The incomplete model shows early promising results but given the time-consuming and ambitious nature of this project, it is far from producing consistently reliable output. The gathering of training data is an on going work in progress, and the layers and neurons have yet to be fully optimized. The model currently has an issue with underfitting, but loss functions continue to improve the more that training data is added.
 
 ## Technical Info
-This repository is of the full stack user interface for running the software.
+This repository is of the full stack user interface for loading the pre-trained model into the client's browser and classifying patterns. For the model source code check my other repository wyckoff-ai-model
 
 ## Technologies
 * React
