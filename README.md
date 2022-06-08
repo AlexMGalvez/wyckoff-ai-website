@@ -1,6 +1,6 @@
 # Wyckoff.AI Website - A Work in Progress
 
-![alt text](https://github.com/AlexMGalvez/wyckoff-ai-website/blob/master/public/logo-large-light.png?raw=true)
+![alt text](https://github.com/AlexMGalvez/wyckoff-ai-website/blob/master/public/images/logo-large-light-min.png?raw=true)
 
 > Wyckoff AI aims to make traditionally closed source institution trading software free and open source to the public and easily accessible from the browser
 
