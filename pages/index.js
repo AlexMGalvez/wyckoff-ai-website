@@ -13,7 +13,7 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={classes["logo-container"]}>
-          {theme == "light" ? <Image src="/logo-large-light.png" alt="logo" layout="fill" objectFit="contain" priority="true" className={classes.logo}/> : <Image src="/images/logo-large-dark-min.png" alt="logo" layout="fill" objectFit="contain" priority="true" className={classes.logo}/>}
+          {theme == "light" ? <Image src="/images/logo-large-light-min.png" alt="logo" layout="fill" objectFit="contain" priority="true" className={classes.logo}/> : <Image src="/images/logo-large-dark-min.png" alt="logo" layout="fill" objectFit="contain" priority="true" className={classes.logo}/>}
         </div>
         <h3> Providing Institution-Grade Trading Software Free for the Public </h3>
         <Link href="/tools">
