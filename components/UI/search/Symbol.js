@@ -27,10 +27,10 @@ const Symbol = (props) => {
     const setStockHandler = async (event, data) => {
         props.setSymbols(null);
 
-        //const stockRes = await fetchStock(data["1. symbol"], "yahoo_finance", RANGE);
-        //const benchMarkRes = await fetchStock("%5EIXIC", "yahoo_finance", RANGE);
-        const stockRes = DUMMY_STOCK;
-        const benchMarkRes = DUMMY_BENCH;
+        const stockRes = await fetchStock(data["1. symbol"], "yahoo_finance", RANGE);
+        const benchMarkRes = await fetchStock("%5EIXIC", "yahoo_finance", RANGE);
+        // const stockRes = DUMMY_STOCK;
+        // const benchMarkRes = DUMMY_BENCH;
 
         const formattedStock = apiToChartFormatter(stockRes, "yahoo_finance");
         const formattedBenchMark = apiToChartFormatter(benchMarkRes, "yahoo_finance");

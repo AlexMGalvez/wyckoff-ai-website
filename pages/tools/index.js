@@ -17,7 +17,7 @@ import { setClassification } from "../../store/classificationSlice";
 
 import classes from "./index.module.css";
 
-const PAD_MAX = 2061;
+const PAD_MAX = 395; // Hard coded pad max must equal maximum timestep length
 const SPECIAL_CHAR = 0;
 const loadModel = modelHelpers.loadModel;
 const makePrediction = modelHelpers.makePrediction;
@@ -113,9 +113,8 @@ const ToolsPage = () => {
     )
 
     const PredictionResults = () => {
-        // [1, 0, 0] = False accumulation pattern
-        // [0, 1, 0] = Accumulation pattern ending at a spring in phase C
-        // [0, 0, 1] = Incomplete accumulation pattern ending at a secondary test in phase B
+        // [1, 0] = In distribution
+        // [0, 1] = In accumulation
 
         const classifyIndex = classification.indexOf(Math.max(...classification));
 
@@ -132,16 +131,8 @@ const ToolsPage = () => {
             return (
                 <>
                     <h2>Possible Accumulation</h2>
-                    <p>The AI predicts that this is an accumulation scenario reaching its finishing stage of phase C and unlikely to lower much further in value.</p>
-                    <p>Consider placing long positions but remain flexible with your assets. Continue analyzing near future market behaviour for any changes in Wyckoffian activity.</p>
-                </>
-            )
-        }
-        else if (classifyIndex == 2) {
-            return (
-                <>
-                    <h2>Possible Accumulation</h2>
-                    <p>The AI predicts that this is an incomplete accumulation scenario currently testing in phase B. Consider holding back on placing long positions until phase C is nearing completion.</p>
+                    <p>The AI predicts that this is an accumulation scenario. Use Wyckoff principles to identify whether this is a final shakeout or likely to retest.</p>
+                    <p>Continue analyzing near future market behaviour for any changes in Wyckoffian activity.</p>
                 </>
             )
         }
@@ -152,10 +143,10 @@ const ToolsPage = () => {
             <h1 className={classes["headings"]}>WYCKOFF PATTERN CLASSIFIER</h1>
             <div className={classes["grid-container"]}>
                 <Card2 className={classes["text-module"]}>
-                    <p>Come use the assistance of an AI for your next stock evaluation. This classifier uses the historical Wyckoff patterns of industry leading companies from the past 40 years to make a best prediction of whatever stock period that you wish to classify. </p>
+                    <p>Come use the assistance of an AI for your next Wyckoff pattern analysis. This classifier compares a given price consolidation period with a market benchmark and 50 years of industry leading stock patterns to best predict it as falling in either an accumulation phase or distribution phase.</p>
                     <p>Reading and understanding the instructions section first before using this tool is essential for accurate pattern classifications. Read it here: (page unavailable at the moment)</p>
                     <div className={"warning-msg"}>
-                        <FontAwesomeIcon icon={faWarning} size="sm"/>
+                        <FontAwesomeIcon icon={faWarning} size="sm" />
                         &nbsp;This feature is currently under development. Classification results should not be considered for any financial decisions.
                     </div>
                 </Card2>

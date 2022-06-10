@@ -17,10 +17,18 @@ const Searchbar = () => {
       return;
     }
 
-    //const res = await fetchSymbols(e.target.value, "alpha_vantage");
-    const res = await DUMMY_SYMBOL_DATA;
+    const res = await fetchSymbols(e.target.value, "alpha_vantage");
+    // const res = await DUMMY_SYMBOL_DATA;
 
-    setSymbols(res);
+    // partially fix stock ticker mismatch issue between alpha vantage and yahoo finance apis 
+    let compatibleRes = [];
+    for (let i = 0; i < res.length; i++) {
+      if (res[i]["1. symbol"].includes(".") == false) {
+        compatibleRes.push(res[i]);
+      }
+    }
+
+    setSymbols(compatibleRes);
   }, 500);
 
   return (
