@@ -10,7 +10,7 @@ This is an AI-assisted stock trader’s financial instrument for detecting stock
 The goal of this software is to assist with a trader’s decision in identifying profitable high-reward/low-risk entry positions of a stock by classifying price consolidation periods as either in "accumulation" or "distribution".
 
 ## Technical Info
-This repository is of the full-stack user interface for loading the pre-trained model into the client's browser and classifying patterns. For information about the model and it's source code, please check my other repository wyckoff-ai-model
+This repository is of the full-stack user interface for loading the pre-trained model into the client's browser and classifying patterns. For information about the model and it's source code, please check my other repository wyckoff-ai-model at https://github.com/AlexMGalvez/wyckoff-ai-model
 
 ## Technologies
 * React
