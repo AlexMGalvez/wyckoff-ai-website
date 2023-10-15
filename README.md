@@ -5,9 +5,9 @@
 > Wyckoff.AI aims to make traditionally closed source institution-grade trading software free, open source and easily accessible from the browser
 
 ## General Info
-This is an AI-assisted stock trader’s financial instrument for detecting stock market manipulation patterns as per the technical analysis principles of one of the five "titans of technical analysis", Richard Wyckoff. 
+This is an AI-assisted stock trader’s financial instrument for detecting stock market manipulation patterns as per the technical analysis principles of one of the five "titans of technical analysis", Richard Wyckoff.
 
-The goal of this software is to assist with a trader’s decision in identifying profitable high-reward/low-risk entry positions of a stock by classifying price consolidation periods as either in "accumulation" or "distribution".
+The goal of this software is to assist with a trader’s decision in identifying profitable high-reward/low-risk entry positions of a stock by classifying price consolidation periods as either in "accumulation" or "distribution". You may visit the website at https://wyckoff-ai.netlify.app/
 
 ## Technical Info
 This repository is of the full-stack user interface for loading the pre-trained model into the client's browser and classifying patterns. For information about the model and it's source code, please check my other repository wyckoff-ai-model at https://github.com/AlexMGalvez/wyckoff-ai-model
